@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap');
+
+.header {
+    padding: 12px 40px;
+    background-color: rgb(3, 37, 65);
+}
+
+.header__block {
+    display: flex;
+    justify-content: space-between;
+}
+
+.euiHeaderLogo {
+    width: 154px;
+    height: 20px;
+    margin-right: 16px;
+}
+
+.euiHeaderLogo img {
+    width: 100%;
+}
+
+.header__list-item {
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 700 !important;
+    text-decoration: none !important;
+    font-size: 16px !important;
+}
+
+.header__list-item-popover-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.header__list-item-popover-list a {
+    color: #fff;
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 400 !important;
+}
+
+.euiHeaderSection:first-child {
+    gap: 16px;
+}
+
+.euiHeaderSection:last-child {
+    gap: 30px;
+}
+
+.header__plus-btn svg {
+    width: 30px;
+    color: #fff;
+}
+
+.header__bell-btn svg {
+    width: 20px;
+    color: #fff;
+}
+
+.header__search-btn {
+    height: 30px;
+}
+
+.header__search-btn svg {
+    width: 30px;
+}
+
+.header__bell-btn-popover-title {
+    font-size: 20px;
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 700 !important;
+    margin-bottom: 12px;
+}
+
+.header__bell-btn-popover-title span, .header__bell-btn-popover-text a {
+    color: #706f6f;
+}
+
+.header__bell-btn-popover-text a {
+    text-decoration: underline;
+}
+
+.header__bell-btn-popover {
+    max-width: 270px;
+}
+
+.header__bell-btn-popover-text {
+    font-size: 16px;
+}
+
+.header__language-btn {
+    padding: 3px 5px;
+    border: 1px solid #fff;
+    border-radius: 3px;
+}
+
+.header__language-btn a {
+    font-size: 14px;
+    color: #fff;
+    text-transform: uppercase;
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 600 !important;
+}
