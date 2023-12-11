@@ -34,7 +34,7 @@
 }
 
 .header__list-item-popover-list a {
-    color: #fff;
+    color: #000;
     font-family: 'Source Sans 3', sans-serif;
     font-weight: 400 !important;
 }
@@ -48,7 +48,7 @@
 }
 
 .header__plus-btn svg {
-    width: 30px;
+    width: 25px;
     color: #fff;
 }
 
