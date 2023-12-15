@@ -25,8 +25,6 @@ import { useState } from 'react'
 import { dataMenu } from '../NavItem/data'
 import NavItem from '../NavItem/NavItem'
 
-const test = { color: '#fff' }
-
 function Header() {
     const { euiTheme } = useEuiTheme()
     const colorStyles = useEuiBackgroundColorCSS()
@@ -45,6 +43,11 @@ function Header() {
     const bellClosePopoverFunc = () => setBellOpenPopover(false)
 
     const [profileOpenPopover, setProfileOpenPopover] = useState(false)
+
+    const profileOpenPopoverFunc = () => {
+        setProfileOpenPopover(prevValue => !prevValue)
+    }
+    const profileClosePopoverFunc = () => setProfileOpenPopover(false)
 
     const sections = [
         {
@@ -78,9 +81,9 @@ function Header() {
                         closePopover={plusClosePopoverFunc}
                     >
                         <div>
-                            <ul className="header__list-item-popover-list">
-                                <li><Link to={'/'}>Add New Movie</Link></li>
-                                <li><Link to={'/'}>Add New TV Show</Link></li>
+                            <ul className="header__list-item-popover-list header__plus-list">
+                                <li className='header__plus-list-item'><Link to={'/'} className='header__list-item-popover-list-link header__plus-list-item-link'>Add New Movie</Link></li>
+                                <li className='header__plus-list-item'><Link to={'/'} className='header__list-item-popover-list-link header__plus-list-item-link'>Add New TV Show</Link></li>
                             </ul>
                         </div>
                     </EuiPopover>
@@ -91,14 +94,13 @@ function Header() {
                     <EuiPopover
                         color="#ffffff"
                         button={
-                            <EuiButtonEmpty
+                            <EuiButtonIcon
                                 className="header__plus-btn-icon"
                                 isDisabled={false}
-                                color="#ffffff"
+                                size="xs"
                                 onClick={bellOpenPopoverFunc}
-                            >
-                                <Bell/>
-                            </EuiButtonEmpty>}
+                                iconType={Bell}
+                            />}
                         isOpen={bellOpenPopover}
                         closePopover={bellClosePopoverFunc}
                     >
@@ -110,30 +112,24 @@ function Header() {
                     </EuiPopover>
                 </EuiHeaderSectionItemButton>,
                 <EuiHeaderSectionItemButton
-                    aria-label="Account menu"
-                    onMouseEnter={() => {
-                        setProfileOpenPopover(true)
-                    }}
-                    onMouseLeave={() => {
-                        setProfileOpenPopover(false)
-                    }}>
+                    aria-label="Account menu">
                     <EuiPopover
                         button={
                             <EuiButtonEmpty
                                 className="header__profile-btn-icon"
                                 isDisabled={false}
-                                onClick={bellOpenPopoverFunc}
+                                onClick={profileOpenPopoverFunc}
                             >
-                                <EuiAvatar name="Arsenii Vasylynchuk" size="s"/>
+                                <EuiAvatar name="Arsenii Vasylynchuk" size="m"/>
                             </EuiButtonEmpty>}
                         isOpen={profileOpenPopover}
+                        closePopover={profileClosePopoverFunc}
                     >
                         <div className="header__profile-btn-popover">
                             <p className="header__profile-btn-popover-text">Profile and Settings</p>
                         </div>
                     </EuiPopover>
                 </EuiHeaderSectionItemButton>,
-                <EuiHeaderSectionItemButton className="header__search-btn"><Search/></EuiHeaderSectionItemButton>
             ],
         },]
 

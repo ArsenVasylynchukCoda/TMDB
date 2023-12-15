@@ -1,4 +1,4 @@
-import Banner from '../components/Banner/Banner'
+import SearchBlock from '../components/SearchBlock/SearchBlock'
 import Header from '../components/Header/Header'
 
 function MainPage() {
@@ -20,7 +20,7 @@ fetch(url, options)
     return (
         <>
             <Header />
-            <Banner />
+            <SearchBlock />
         </>
     )
 }
