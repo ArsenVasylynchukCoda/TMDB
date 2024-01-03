@@ -1,5 +1,8 @@
 import SearchBlock from '../components/SearchBlock/SearchBlock'
 import Header from '../components/Header/Header'
+import TrendingMoviesToday from "../components/TrendingMoviesToday/TrendingMoviesToday";
+import PopularMovies from "../components/PopularMovies/PopularMovies";
+import NowPlayingMovies from "../components/NowPlayingMovies/NowPlayingMovies";
 
 function MainPage() {
     const fetch = require('node-fetch');
@@ -21,6 +24,9 @@ fetch(url, options)
         <>
             <Header />
             <SearchBlock />
+            <TrendingMoviesToday />
+            <PopularMovies />
+            <NowPlayingMovies />
         </>
     )
 }

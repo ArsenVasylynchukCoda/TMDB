@@ -1,0 +1,82 @@
+@import "../../assets/fonts/fonts.css";
+
+.movie {
+    min-width: 150px;
+    cursor: pointer;
+}
+
+.movie__banner {
+    box-shadow: 0 2px 8px rgba(0,0,0,.1);
+    position: relative;
+}
+
+.movie__banner, .movie__banner img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.movie__text-block {
+    padding: 0 10px 12px;
+    margin-top: 26px;
+}
+
+.movie__title {
+    margin-bottom: 5px;
+}
+
+.movie__title-link {
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: #000;
+    cursor: pointer;
+}
+
+.movie__title-link:hover {
+    color: rgba(1,180,228,1);
+}
+
+.movie__date {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 16px;
+    color: rgba(0,0,0,.6);
+}
+
+.movie__rating {
+    position: absolute;
+    top: 105%;
+    left: -10%;
+    transform: translate(10%, -105%);
+}
+
+.movie__rating svg {
+    width: 38px;
+    height: 38px;
+    background-color: #081c22;
+    padding: 3px;
+    border-radius: 50%;
+}
+
+.movie__rating svg circle {
+    fill: none;
+    stroke-width: 3px;
+    stroke-dasharray: 95;
+    transform: translate(1px, 1px);
+}
+
+.movie__rating-percent {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: #ffffff;
+    display: flex;
+    align-items: flex-start;
+}
+
+.movie__rating-percent span {
+    font-size: 5px;
+}

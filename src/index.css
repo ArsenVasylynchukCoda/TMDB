@@ -5,6 +5,19 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /*background-color: rgba(3,37,65, 1);*/
+}
+
+html {
+  scrollbar-color: rgba(105,112,125,0.5) rgba(3,37,65,1) !important;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgba(3,37,65,1) !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(105,112,125,0.5) !important;
 }
 
 code {

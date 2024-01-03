@@ -30,24 +30,15 @@ function Header() {
     const colorStyles = useEuiBackgroundColorCSS()
     const cssStyles = [colorStyles['#032541']]
 
-    const [plusOpenPopover, setPlusOpenPopover] = useState(false)
-    const plusOpenPopoverFunc = () => {
-        setPlusOpenPopover(prevValue => !prevValue)
-    }
-    const plusClosePopoverFunc = () => setPlusOpenPopover(false)
+    const [isPopoverOpen, setIsPopoverOpen] = useState({
+        plus: false,
+        bell: false,
+        profile: false,
+    })
 
-    const [bellOpenPopover, setBellOpenPopover] = useState(false)
-    const bellOpenPopoverFunc = () => {
-        setBellOpenPopover(prevValue => !prevValue)
-    }
-    const bellClosePopoverFunc = () => setBellOpenPopover(false)
+    const handeOpenPopover = (type) => () => setIsPopoverOpen(preValue => ({...preValue, [type]: !preValue[type]}))
 
-    const [profileOpenPopover, setProfileOpenPopover] = useState(false)
-
-    const profileOpenPopoverFunc = () => {
-        setProfileOpenPopover(prevValue => !prevValue)
-    }
-    const profileClosePopoverFunc = () => setProfileOpenPopover(false)
+    const handeClosePopover = (type) => () => setIsPopoverOpen(preValue => ({...preValue, [type]: false}))
 
     const sections = [
         {
@@ -73,63 +64,61 @@ function Header() {
                                 className="header__plus-btn-icon"
                                 isDisabled={false}
                                 size="xs"
-                                onClick={plusOpenPopoverFunc}
+                                onClick={handeOpenPopover('plus')}
                                 iconType={Plus}
                             />
                     }
-                        isOpen={plusOpenPopover}
-                        closePopover={plusClosePopoverFunc}
+                        isOpen={isPopoverOpen.plus}
+                        closePopover={handeClosePopover('plus')}
                     >
-                        <div>
                             <ul className="header__list-item-popover-list header__plus-list">
                                 <li className='header__plus-list-item'><Link to={'/'} className='header__list-item-popover-list-link header__plus-list-item-link'>Add New Movie</Link></li>
                                 <li className='header__plus-list-item'><Link to={'/'} className='header__list-item-popover-list-link header__plus-list-item-link'>Add New TV Show</Link></li>
                             </ul>
-                        </div>
                     </EuiPopover>
                 </EuiHeaderSectionItemButton>,
-                <EuiHeaderSectionItemButton className="header__language-btn"><Link
-                    to={'/'}>en</Link></EuiHeaderSectionItemButton>,
-                <EuiHeaderSectionItemButton className="header__bell-btn">
-                    <EuiPopover
-                        color="#ffffff"
-                        button={
-                            <EuiButtonIcon
-                                className="header__plus-btn-icon"
-                                isDisabled={false}
-                                size="xs"
-                                onClick={bellOpenPopoverFunc}
-                                iconType={Bell}
-                            />}
-                        isOpen={bellOpenPopover}
-                        closePopover={bellClosePopoverFunc}
-                    >
-                        <div className="header__bell-btn-popover">
-                            <h4 className="header__bell-btn-popover-title">Unread Notifications <span>0</span></h4>
-                            <p className="header__bell-btn-popover-text">Good job! Looks like you're all caught
-                                up. <Link to={'/'}>View All</Link></p>
-                        </div>
-                    </EuiPopover>
-                </EuiHeaderSectionItemButton>,
-                <EuiHeaderSectionItemButton
-                    aria-label="Account menu">
-                    <EuiPopover
-                        button={
-                            <EuiButtonEmpty
-                                className="header__profile-btn-icon"
-                                isDisabled={false}
-                                onClick={profileOpenPopoverFunc}
-                            >
-                                <EuiAvatar name="Arsenii Vasylynchuk" size="m"/>
-                            </EuiButtonEmpty>}
-                        isOpen={profileOpenPopover}
-                        closePopover={profileClosePopoverFunc}
-                    >
-                        <div className="header__profile-btn-popover">
-                            <p className="header__profile-btn-popover-text">Profile and Settings</p>
-                        </div>
-                    </EuiPopover>
-                </EuiHeaderSectionItemButton>,
+                // <EuiHeaderSectionItemButton className="header__language-btn"><Link
+                //     to={'/'}>en</Link></EuiHeaderSectionItemButton>,
+                // <EuiHeaderSectionItemButton className="header__bell-btn">
+                //     <EuiPopover
+                //         color="#ffffff"
+                //         button={
+                //             <EuiButtonIcon
+                //                 className="header__plus-btn-icon"
+                //                 isDisabled={false}
+                //                 size="xs"
+                //                 onClick={bellOpenPopoverFunc}
+                //                 iconType={Bell}
+                //             />}
+                //         isOpen={bellOpenPopover}
+                //         closePopover={bellClosePopoverFunc}
+                //     >
+                //         <div className="header__bell-btn-popover">
+                //             <h4 className="header__bell-btn-popover-title">Unread Notifications <span>0</span></h4>
+                //             <p className="header__bell-btn-popover-text">Good job! Looks like you're all caught
+                //                 up. <Link to={'/'}>View All</Link></p>
+                //         </div>
+                //     </EuiPopover>
+                // </EuiHeaderSectionItemButton>,
+                // <EuiHeaderSectionItemButton
+                //     aria-label="Account menu">
+                //     <EuiPopover
+                //         button={
+                //             <EuiButtonEmpty
+                //                 className="header__profile-btn-icon"
+                //                 isDisabled={false}
+                //                 onClick={profileOpenPopoverFunc}
+                //             >
+                //                 <EuiAvatar name="Arsenii Vasylynchuk" size="m"/>
+                //             </EuiButtonEmpty>}
+                //         isOpen={profileOpenPopover}
+                //         closePopover={profileClosePopoverFunc}
+                //     >
+                //         <div className="header__profile-btn-popover">
+                //             <p className="header__profile-btn-popover-text">Profile and Settings</p>
+                //         </div>
+                //     </EuiPopover>
+                // </EuiHeaderSectionItemButton>,
             ],
         },]
 
