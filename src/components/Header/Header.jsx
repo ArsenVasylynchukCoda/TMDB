@@ -24,11 +24,19 @@ import './Header.css'
 import { useState } from 'react'
 import { dataMenu } from '../NavItem/data'
 import NavItem from '../NavItem/NavItem'
+import { useDebounce, useFetch } from '../../hooks/debounce'
 
 function Header() {
     const { euiTheme } = useEuiTheme()
     const colorStyles = useEuiBackgroundColorCSS()
     const cssStyles = [colorStyles['#032541']]
+
+    const { data, loading } = useFetch('https://jsonplaceholder.typicode.com/posts', 'POST', {
+        title: 'foo',
+        body: 'bar',
+        userId: 1,
+    })
+    console.log(data)
 
     const [isPopoverOpen, setIsPopoverOpen] = useState({
         plus: false,
@@ -123,8 +131,8 @@ function Header() {
         },]
 
     return (
-        <header className="header">
-            <EuiHeader className="header__block" theme="dark" sections={sections} css={cssStyles}/>
+        <header className="header" style={{color: '#fff'}}>
+            {loading ? 'LOADING...' : <EuiHeader className="header__block" theme="dark" sections={sections} css={cssStyles}/>}
         </header>
     )
 }

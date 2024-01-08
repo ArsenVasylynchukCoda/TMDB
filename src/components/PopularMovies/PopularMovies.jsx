@@ -8,7 +8,7 @@ function PopularMovies () {
     }
 
     return (
-        <MoviesBlock inf={options} />
+        <MoviesBlock options={options} />
     )
 }
 

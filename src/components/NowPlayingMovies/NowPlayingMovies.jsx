@@ -8,7 +8,7 @@ function NowPlayingMovies () {
     }
 
     return (
-        <MoviesBlock inf={options} />
+        <MoviesBlock options={options} />
     )
 }
 

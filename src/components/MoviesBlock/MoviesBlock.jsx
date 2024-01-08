@@ -1,37 +1,24 @@
 import {useEffect, useState} from "react";
 import Movie from "../Movie/Movie";
 import './MoviesBlock.css';
+import { useFetch } from '../../hooks/debounce'
 
-function MoviesBlock({inf}) {
+function MoviesBlock({options}) {
     const [movies, setMovies] = useState([])
-
+    const { data, loading } = useFetch(options.url)
+    console.log('data', data?.results)
     useEffect(() => {
-        const fetch = require('node-fetch');
-
-        const url = inf.url;
-        const options = {
-            method: 'GET',
-            headers: {
-                accept: 'application/json',
-                Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkNmNkY2UyYzU3YzQ3Mjk2OTNkNDM3YzFhOTI4ZDBkZSIsInN1YiI6IjY1NWUxMDc2ZDM5OWU2MDEyZTAyMDNiNyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.hq98-Bxaonwz4cniOcrJB9s78VM-TqgWaWrKIUkvy90'
-            }
-        };
-
-        fetch(url, options)
-            .then(res => res.json())
-            .then(json => setMovies(json.results))
-            .catch(err => console.error('error:' + err));
-    }, []);
-
-    console.log(movies)
+        setMovies(data?.results)
+    }, [data]);
 
     return (
-        <div className={`${inf.className} movies`}>
-            <h3 className={`${inf.className}__title movies__title`}>{inf.title}</h3>
-            <div className={`${inf.className}__block movies__block`}>
+        <div className={`${options.className} movies`}>
+            asdasdasd
+            <h3 className={`${options.className}__title movies__title`}>{options.title}</h3>
+            <div className={`${options.className}__block movies__block`}>
                 {
                     movies && movies.map(movie => {
-                        return <Movie id={movie.id} className={inf.className}/>
+                        return <Movie id={movie.id} className={options.className}/>
                     })
                 }
             </div>
