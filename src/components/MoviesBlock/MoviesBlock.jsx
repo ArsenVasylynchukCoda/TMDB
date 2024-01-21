@@ -13,7 +13,6 @@ function MoviesBlock({options}) {
 
     return (
         <div className={`${options.className} movies`}>
-            asdasdasd
             <h3 className={`${options.className}__title movies__title`}>{options.title}</h3>
             <div className={`${options.className}__block movies__block`}>
                 {

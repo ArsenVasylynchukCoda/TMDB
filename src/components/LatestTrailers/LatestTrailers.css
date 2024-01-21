@@ -1,0 +1,62 @@
+.latest-trailers {
+    padding: 30px 40px;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow-x: scroll;
+}
+
+.latest-trailers__title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.latest-trailers__movies-block {
+    margin-top: 20px;
+    display: flex;
+    gap: 20px;
+}
+
+.latest-trailers__movie {
+    text-align: center;
+}
+
+.latest-trailers__movie, .latest-trailers__movie-img img {
+    max-width: 300px;
+}
+
+.latest-trailers__movie-img img {
+    border-radius: 8px;
+}
+
+.latest-trailers__movie-img {
+    position: relative;
+    transition: .5s all;
+}
+
+.latest-trailers__movie-img:hover {
+    transform: scale(1.05);
+}
+
+.latest-trailers__movie-text-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 19px;
+    color: #ffffff;
+    margin-top: 10px;
+}
+
+.latest-trailers__movie-img::after {
+    content: '';
+    width: 64px;
+    height: 64px;
+    background-image: url('../../assets/img/play-button-arrowhead.png');
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 2;
+    transform: translate(-50%, -50%);
+    background-repeat: no-repeat;
+    background-position: center;
+}

@@ -4,6 +4,7 @@ import TrendingMoviesToday from "../components/TrendingMoviesToday/TrendingMovie
 import PopularMovies from "../components/PopularMovies/PopularMovies";
 import NowPlayingMovies from "../components/NowPlayingMovies/NowPlayingMovies";
 import { useFetch } from '../hooks/debounce'
+import Content from "../components/Content/Content";
 
 function MainPage() {
     const fetch = require('node-fetch');
@@ -25,9 +26,7 @@ fetch(url, options)
         <>
             <Header />
             <SearchBlock />
-            <TrendingMoviesToday />
-            <PopularMovies />
-            <NowPlayingMovies />
+            <Content />
         </>
     )
 }
