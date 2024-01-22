@@ -36,7 +36,6 @@ function Header() {
         body: 'bar',
         userId: 1,
     })
-    console.log(data)
 
     const [isPopoverOpen, setIsPopoverOpen] = useState({
         plus: false,
