@@ -1,10 +1,15 @@
 import './SearchBlock.css'
-import {useState} from "react";
+import { useCallback, useEffect, useState } from 'react'
 import {Link} from "react-router-dom";
+import debounce from 'lodash/debounce';
 
 function SearchBlock () {
-    const onInputChange = (e) => {
-        const url = `https://api.themoviedb.org/3/search/movie?query=${e.target.value}&include_adult=false&language=en-US&page=1`;
+
+    const [value, setValue] = useState('');
+
+    const onInputChange = (inputValue) => {
+        console.log(inputValue)
+        const url = `https://api.themoviedb.org/3/search/movie?query=${inputValue}&include_adult=false&language=en-US&page=1`;
         const options = {
             method: 'GET',
             headers: {
@@ -19,6 +24,13 @@ function SearchBlock () {
             .catch(err => console.error('error:' + err));
     }
 
+    const debounceFn = useCallback(debounce(onInputChange, 1000), []);
+
+    function handleChange (event) {
+        setValue(event.target.value);
+        debounceFn(event.target.value);
+    };
+
     const [searchedMovies, setSearchedMovies] = useState([])
 
     return (
@@ -26,7 +38,13 @@ function SearchBlock () {
             <h1 className="search__title">Welcome.</h1>
             <h2 className="search__sub-title">Millions of movies, TV shows and people to discover. Explore now.</h2>
             <div className="search__block">
-                <input className="search__block-input" type="text" placeholder="Search for a movie, tv show, person......" onChange={onInputChange} />
+                <input
+                    value={value}
+                    className="search__block-input"
+                    type="text"
+                    placeholder="Search for a movie, tv show, person......"
+                    onChange={handleChange}
+                />
                 <button className="search__block-btn">Search</button>
             </div>
             {
