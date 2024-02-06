@@ -4,9 +4,8 @@ import { Link } from 'react-router-dom'
 import debounce from 'lodash/debounce'
 import SearchedMovies from '../SearchedMovies/SearchedMovies'
 
-function SearchBlock() {
-
-    const [value, setValue] = useState('')
+function SearchBlock({searchValue, setSearchValue}) {
+    // const [value, setValue] = useState('')
     const [showList, setShowList] = useState(false)
     console.log(showList)
     const onInputChange = (inputValue) => {
@@ -30,7 +29,7 @@ function SearchBlock() {
     const debounceFn = useCallback(debounce(onInputChange, 1000), [])
 
     function handleChange(event) {
-        setValue(event.target.value)
+        setSearchValue(event.target.value)
         debounceFn(event.target.value)
     }
 
@@ -41,10 +40,10 @@ function SearchBlock() {
         <section className="search">
             <h1 className="search__title">Welcome.</h1>
             <h2 className="search__sub-title">Millions of movies, TV shows and people to discover. Explore now.</h2>
-            <div className="search__block">
+            <form className="search__block" action={`/search?query=${searchValue}`}>
                 <input
                     ref={refInput}
-                    value={value}
+                    value={searchValue}
                     className="search__block-input"
                     type="text"
                     placeholder="Search for a movie, tv show, person......"
@@ -53,10 +52,10 @@ function SearchBlock() {
                         setShowList(true)
                     }}
                 />
-                <button className="search__block-btn">Search</button>
-            </div>
+                <button className="search__block-btn" type='submit'>Search</button>
+            </form>
             {searchedMovies && showList && (
-                <SearchedMovies searchedMovies={searchedMovies} setShowList={setShowList} value={value} refInput={refInput}/>
+                <SearchedMovies searchedMovies={searchedMovies} setShowList={setShowList} value={searchValue} refInput={refInput}/>
             )}
         </section>
     )

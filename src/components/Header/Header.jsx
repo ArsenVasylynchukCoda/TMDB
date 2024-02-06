@@ -24,7 +24,8 @@ import './Header.css'
 import { useState } from 'react'
 import { dataMenu } from '../NavItem/data'
 import NavItem from '../NavItem/NavItem'
-import { useDebounce, useFetch } from '../../hooks/debounce'
+import { useDebounce} from '../../hooks/debounce'
+import {useFetch} from "../../hooks/fetch";
 
 function Header() {
     const { euiTheme } = useEuiTheme()

@@ -5,8 +5,9 @@ import PopularMovies from "../components/PopularMovies/PopularMovies";
 import NowPlayingMovies from "../components/NowPlayingMovies/NowPlayingMovies";
 import { useFetch } from '../hooks/debounce'
 import Content from "../components/Content/Content";
+import SearchPageField from "../components/SearchPageField/SearchPageField";
 
-function MainPage() {
+function MainPage({searchValue, setSearchValue}) {
     const fetch = require('node-fetch');
 
 const url = 'https://api.themoviedb.org/3/authentication';
@@ -25,7 +26,7 @@ fetch(url, options)
     return (
         <>
             <Header />
-            <SearchBlock />
+            <SearchBlock searchValue={searchValue} setSearchValue={setSearchValue} />
             <Content />
         </>
     )

@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 import Movie from "../Movie/Movie";
 import './MoviesBlock.css';
-import { useFetch } from '../../hooks/debounce'
+import {useFetch} from "../../hooks/fetch";
 
 function MoviesBlock({options}) {
     const [movies, setMovies] = useState([])
