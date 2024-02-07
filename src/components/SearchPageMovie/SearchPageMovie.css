@@ -1,0 +1,39 @@
+@import "../../assets/fonts/fonts.css";
+
+.search-page-movies__movie {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.search-page-movies__movie-img, .search-page-movies__movie-img img {
+    width: 200px;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+.search-page-movies__movie-title a {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 19px;
+    color: #000000;
+}
+
+.search-page-movies__movie-title a:hover {
+    color: #666;
+}
+
+.search-page-movies__movie-date {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 16px;
+    color: #999;
+    display: inline-block;
+    margin-top: 2px;
+}
+
+.search-page-movies__movie-text {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 16px;
+    color: #000;
+    margin-top: 20px;
+}

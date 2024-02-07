@@ -1,0 +1,28 @@
+@import "../../assets/fonts/fonts.css";
+
+.search-page-field {
+    position: relative;
+}
+
+.search-page-field form {
+    display: flex;
+    justify-content: center;
+}
+
+.search-page-field form input {
+    font-family: 'Arial', sans-serif;
+    color: #acacac;
+    font-size: 16px;
+    font-style: italic;
+    width: 90%;
+    border: none;
+    padding: 6px 15px;
+}
+
+.search-page-field input:focus {
+    outline: none;
+}
+
+.search-page-field button {
+    padding: 6px 0px;
+}
