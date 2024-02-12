@@ -5,7 +5,6 @@ import SearchPageMovies from "../components/SearchPageMovies/SearchPageMovies";
 
 function SearchPage ({oldValue, setOldValue}) {
     const [searchedMovies, setSearchedMovies] = useState([])
-    console.log(searchedMovies)
 
     return (
         <>

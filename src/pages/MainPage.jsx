@@ -1,11 +1,6 @@
 import SearchBlock from '../components/SearchBlock/SearchBlock'
 import Header from '../components/Header/Header'
-import TrendingMoviesToday from "../components/TrendingMoviesToday/TrendingMoviesToday";
-import PopularMovies from "../components/PopularMovies/PopularMovies";
-import NowPlayingMovies from "../components/NowPlayingMovies/NowPlayingMovies";
-import { useFetch } from '../hooks/debounce'
-import Content from "../components/Content/Content";
-import SearchPageField from "../components/SearchPageField/SearchPageField";
+import Content from '../components/Content/Content'
 
 function MainPage({searchValue, setSearchValue}) {
     const fetch = require('node-fetch');

@@ -1,15 +1,14 @@
 import './SearchBlock.css'
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import debounce from 'lodash/debounce'
 import SearchedMovies from '../SearchedMovies/SearchedMovies'
 
 function SearchBlock({searchValue, setSearchValue}) {
+    const navigate = useNavigate()
     // const [value, setValue] = useState('')
     const [showList, setShowList] = useState(false)
-    console.log(showList)
     const onInputChange = (inputValue) => {
-        // console.log(inputValue)
         setShowList(true)
         const url = `https://api.themoviedb.org/3/search/movie?query=${inputValue}&include_adult=false&language=en-US&page=1`
         const options = {
@@ -35,12 +34,17 @@ function SearchBlock({searchValue, setSearchValue}) {
 
     const [searchedMovies, setSearchedMovies] = useState([])
     const refInput = useRef()
-
+    const onSubmit = (e) => {
+        e.preventDefault()
+        console.log('onSubmit')
+        navigate(`/search?query=${searchValue}`)
+    }
     return (
         <section className="search">
             <h1 className="search__title">Welcome.</h1>
             <h2 className="search__sub-title">Millions of movies, TV shows and people to discover. Explore now.</h2>
-            <form className="search__block" action={`/search?query=${searchValue}`}>
+            {/*<form className="search__block" action={`/search?query=${searchValue}`}>*/}
+            <form className="search__block" onSubmit={onSubmit}>
                 <input
                     ref={refInput}
                     value={searchValue}

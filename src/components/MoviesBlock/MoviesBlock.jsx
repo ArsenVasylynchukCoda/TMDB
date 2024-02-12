@@ -6,7 +6,7 @@ import {useFetch} from "../../hooks/fetch";
 function MoviesBlock({options}) {
     const [movies, setMovies] = useState([])
     const { data, loading } = useFetch(options.url)
-    // console.log('data', data?.results)
+
     useEffect(() => {
         setMovies(data?.results)
     }, [data]);
