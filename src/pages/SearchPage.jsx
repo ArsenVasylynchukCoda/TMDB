@@ -3,13 +3,13 @@ import Header from "../components/Header/Header";
 import {useState} from "react";
 import SearchPageMovies from "../components/SearchPageMovies/SearchPageMovies";
 
-function SearchPage ({oldValue, setOldValue}) {
+function SearchPage () {
     const [searchedMovies, setSearchedMovies] = useState([])
 
     return (
         <>
             <Header />
-            <SearchPageField oldValue={oldValue} setOldValue={setOldValue} setSearchedMovies={setSearchedMovies}/>
+            <SearchPageField setSearchedMovies={setSearchedMovies}/>
             <SearchPageMovies searchedMovies={searchedMovies} />
         </>
     )

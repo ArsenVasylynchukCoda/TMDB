@@ -47,21 +47,21 @@ function Movie ({id}, {className}) {
     }, [id]);
 
     return (
-        <div className={`${className}__movie movie`}>
-            <div className={`${className}__movie-banner movie__banner`}>
-                <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt=''/>
-                <div className={`${className}__rating movie__rating`}>
-                        <svg>
-                            {generatePercentCircle()}
-                        </svg>
-                    <div className='movie__rating-percent'>{votePercent}<span>%</span></div>
-                </div>
-            </div>
-            <div className='movie__text-block movie__text-block'>
-                <h4 className={`${className}__movie-title movie__title`}><span className={`${className}__movie-title-link movie__title-link`}>{movie.original_title}</span></h4>
-                <time className={`${className}__movie-date movie__date`}>{releaseDate}</time>
-            </div>
-        </div>
+        <>
+    <div className={`${className}__movie-banner movie__banner`}>
+<img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt=''/>
+        <div className={`${className}__rating movie__rating`}>
+<svg>
+    {generatePercentCircle()}
+</svg>
+    <div className='movie__rating-percent'>{votePercent}<span>%</span></div>
+</div>
+</div>
+    <div className='movie__text-block movie__text-block'>
+        <h4 className={`${className}__movie-title movie__title`}><span className={`${className}__movie-title-link movie__title-link`}>{movie.original_title}</span></h4>
+        <time className={`${className}__movie-date movie__date`}>{releaseDate}</time>
+    </div>
+        </>
     )
 }
 

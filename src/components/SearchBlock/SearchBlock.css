@@ -29,16 +29,27 @@
     position: relative;
 }
 
-.search__block-input {
+.search__block .euiFormControlLayout {
     width: 100%;
+    background-color: #fff;
+    border-radius: 30px;
+}
+
+.search__block .euiFormControlLayoutIcons {
+    padding: 10px 5px;
+}
+
+.search__block-input {
+    flex: 1;
     font-family: 'Source Sans 3', sans-serif;
     font-weight: 400;
     font-size: 18px;
     color: rgba(0,0,0,.5);
     border: none;
-    border-radius: 30px;
     padding: 10px 20px;
     max-height: 42px;
+    outline: none !important;
+    border-radius: 30px;
 }
 
 .search__block-btn {

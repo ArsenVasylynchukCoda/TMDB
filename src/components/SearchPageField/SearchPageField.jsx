@@ -1,12 +1,11 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import debounce from 'lodash/debounce'
 import './SearchPageField.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import SearchPageSearchedMovies from '../SearchPageSearchedMovies/SearchPageSearchedMovies'
 import { useLocation } from 'react-router-dom'
+import {EuiFieldSearch} from "@elastic/eui";
 
-function SearchPageField({ oldValue, setOldValue, setSearchedMovies }) {
+function SearchPageField({setSearchedMovies }) {
 
     const params = useLocation()
 
@@ -56,18 +55,27 @@ function SearchPageField({ oldValue, setOldValue, setSearchedMovies }) {
     return (
         <div className="search-page-field">
             <form onSubmit={setMovies}>
-                <button type="submit"><FontAwesomeIcon icon={faMagnifyingGlass} size="lg"/></button>
-                <input
-                    ref={refInput}
-                    type="text"
+                <EuiFieldSearch
                     name="query"
                     placeholder="Search for a movie, tv show, person..."
                     value={value}
-                    onChange={handleChange}
                     onFocus={() => {
                         setShowList(true)
                     }}
+                    onChange={handleChange}
                 />
+                {/*<button type="submit"><FontAwesomeIcon icon={faMagnifyingGlass} size="lg"/></button>*/}
+                {/*<input*/}
+                {/*    ref={refInput}*/}
+                {/*    type="text"*/}
+                {/*    name="query"*/}
+                {/*    placeholder="Search for a movie, tv show, person..."*/}
+                {/*    value={value}*/}
+                {/*    onChange={handleChange}*/}
+                {/*    onFocus={() => {*/}
+                {/*        setShowList(true)*/}
+                {/*    }}*/}
+                {/*/>*/}
             </form>
             {
                 popupMovies && showList && (

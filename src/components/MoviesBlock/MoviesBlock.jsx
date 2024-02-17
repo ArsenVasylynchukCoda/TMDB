@@ -5,7 +5,7 @@ import {useFetch} from "../../hooks/fetch";
 
 function MoviesBlock({options}) {
     const [movies, setMovies] = useState([])
-    const { data, loading } = useFetch(options.url)
+    const { data } = useFetch(options.url)
 
     useEffect(() => {
         setMovies(data?.results)
@@ -17,7 +17,7 @@ function MoviesBlock({options}) {
             <div className={`${options.className}__block movies__block`}>
                 {
                     movies && movies.map(movie => {
-                        return <Movie id={movie.id} className={options.className}/>
+                        return <div className={` ${options.className}__movie movie`} key={movie.id}><Movie id={movie.id} className={options.className}/></div>
                     })
                 }
             </div>

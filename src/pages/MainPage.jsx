@@ -2,7 +2,7 @@ import SearchBlock from '../components/SearchBlock/SearchBlock'
 import Header from '../components/Header/Header'
 import Content from '../components/Content/Content'
 
-function MainPage({searchValue, setSearchValue}) {
+function MainPage() {
     const fetch = require('node-fetch');
 
 const url = 'https://api.themoviedb.org/3/authentication';
@@ -21,7 +21,7 @@ fetch(url, options)
     return (
         <>
             <Header />
-            <SearchBlock searchValue={searchValue} setSearchValue={setSearchValue} />
+            <SearchBlock/>
             <Content />
         </>
     )

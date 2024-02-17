@@ -14,8 +14,6 @@ function SearchPageSearchedMovies ({searchedMovies, setShowList, value, refInput
     useEffect(() => {
         const handleClickOutside = (event) => {
             if (refInput.current && !refInput.current.contains(event.target)) {
-                // if (refInput.current.classList.value !== 'searched-movies') {
-                console.log('Закриття вікна')
                 setShowList(false)
             }
         }
@@ -32,7 +30,7 @@ function SearchPageSearchedMovies ({searchedMovies, setShowList, value, refInput
         <div className="search-page-searched-movies">
             <ul className="search-page-searched-movies__list">
                 {searchedMovies.map(elem => {
-                    return <li className="search-page-searched-movies__list-item">
+                    return <li className="search-page-searched-movies__list-item" key={elem.id}>
                         <Link target="_blank" to="https://www.npmjs.com/package/lodash"><FontAwesomeIcon icon={faMagnifyingGlass} size='lg'/><img
                             src={`https://image.tmdb.org/t/p/w500${elem.poster_path}`} alt="movie-banner"/>{elem.title}
                         </Link>

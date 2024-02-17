@@ -31,10 +31,10 @@ function LatestTrailers () {
             <div className='latest-trailers__movies-block'>
                 {
                     movies && movies.map(elem => {
-                        return <div className='latest-trailers__movie' onMouseEnter={() => changeBg(`https://image.tmdb.org/t/p/w500${elem.backdrop_path}`)}>
+                        return <div className='latest-trailers__movie' key={elem.id} onMouseEnter={() => changeBg(`https://image.tmdb.org/t/p/w500${elem.backdrop_path}`)}>
                             <Link to='#'>
                                 <div className='latest-trailers__movie-img'><img
-                                    src={`https://image.tmdb.org/t/p/w500${elem.backdrop_path}`} alt='preview-image'/>
+                                    src={`https://image.tmdb.org/t/p/w500${elem.backdrop_path}`} alt='movie-poster'/>
                                 </div>
                                 <div className='latest-trailers__movie-text'>
                                     <h3 className='latest-trailers__movie-text-title'>{elem.title}</h3>

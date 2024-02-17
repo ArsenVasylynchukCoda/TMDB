@@ -14,8 +14,8 @@
     color: #acacac;
     font-size: 16px;
     font-style: italic;
-    width: 90%;
     border: none;
+    flex: 1;
     padding: 6px 15px;
 }
 
@@ -25,4 +25,15 @@
 
 .search-page-field button {
     padding: 6px 0px;
+}
+
+.search-page-field .euiFormControlLayout {
+    width: 90%;
+}
+
+.euiFormControlLayout__childrenWrapper {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
 }
