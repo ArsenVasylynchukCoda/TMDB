@@ -6,7 +6,7 @@ export const dataMenu = [
             color: '#fff'
         },
         children: [
-            {name: 'Popular', id: 'popular', path: '/'},
+            {name: 'Popular', id: 'popular', path: '/movies'},
             {name: 'Now Playing', id: 'nowPlaying', path: '/'},
             {name: 'Upcoming', id: 'upcoming', path: '/'},
             {name: 'Top Rated', id: 'topRated', path: '/'},

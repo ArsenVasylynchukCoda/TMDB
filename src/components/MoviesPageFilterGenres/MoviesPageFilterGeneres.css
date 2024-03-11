@@ -1,0 +1,13 @@
+.movies-page__filter-item-generes button {
+    border: 1px solid rgb(158, 158, 158);
+    border-radius: 14px;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 14px;
+    padding: 4px 12px;
+}
+
+.movies-page__filter-item-generes button:hover, .movies-page__filter-item-generes button.active {
+    color: white;
+    background-color: rgb(1, 180, 228);
+    border-color: rgb(1, 180, 228);
+}

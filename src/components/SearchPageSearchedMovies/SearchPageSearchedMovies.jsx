@@ -13,7 +13,7 @@ function SearchPageSearchedMovies ({searchedMovies, setShowList, value, refInput
 
     useEffect(() => {
         const handleClickOutside = (event) => {
-            if (refInput.current && !refInput.current.contains(event.target)) {
+            if (refInput.current.inputElement && !refInput.current.inputElement.contains(event.target)) {
                 setShowList(false)
             }
         }
@@ -25,6 +25,8 @@ function SearchPageSearchedMovies ({searchedMovies, setShowList, value, refInput
         }
 
     }, [])
+
+    console.log(refInput)
 
     return (
         <div className="search-page-searched-movies">

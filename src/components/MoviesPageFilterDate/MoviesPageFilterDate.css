@@ -1,0 +1,21 @@
+.movies-page__filter-date-item {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+    align-items: center;
+}
+
+.movies-page__filter-date-item label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 14px;
+    color: #a4a4a4;
+}
+
+.movies-page__filter-date-item input {
+    padding: 6px 12px;
+    outline: none;
+    border: 1px solid rgba(73, 80, 87, 0.6);
+    width: 65%;
+    text-align: center;
+    border-radius: 3px;
+}

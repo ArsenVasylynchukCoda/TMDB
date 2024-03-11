@@ -2,18 +2,38 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import debounce from 'lodash/debounce'
 import './SearchPageField.css'
 import SearchPageSearchedMovies from '../SearchPageSearchedMovies/SearchPageSearchedMovies'
-import { useLocation } from 'react-router-dom'
 import {EuiFieldSearch} from "@elastic/eui";
+import {useDispatch, useSelector} from "react-redux";
+import {useLocation, useParams, useSearchParams} from "react-router-dom";
+import {setByValue} from "../../features/search/searchSlice";
 
 function SearchPageField({setSearchedMovies }) {
+    const [searchParams] = useSearchParams()
+    console.log(searchParams.get('query'))
+    const dispatch = useDispatch()
+    const searchValue = useSelector((state) => state.search.value)
+    const [value, setValue] = useState(searchValue || searchParams.get('query'))
+    const oldSearchValue = () => {
+        const fetch = require('node-fetch')
 
-    const params = useLocation()
-
-    const [value, setValue] = useState('')
-    useEffect(() => {
-        if (params.search) {
-            setValue(params.search.replace('?query=', ''))
+        const url = `https://api.themoviedb.org/3/search/movie?query=${value}&include_adult=false&language=en-US&page=1`
+        const options = {
+            method: 'GET',
+            headers: {
+                accept: 'application/json',
+                Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkNmNkY2UyYzU3YzQ3Mjk2OTNkNDM3YzFhOTI4ZDBkZSIsInN1YiI6IjY1NWUxMDc2ZDM5OWU2MDEyZTAyMDNiNyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.hq98-Bxaonwz4cniOcrJB9s78VM-TqgWaWrKIUkvy90'
+            }
         }
+
+        fetch(url, options)
+            .then(res => res.json())
+            .then(json => setSearchedMovies(json.results))
+            .catch(err => console.error('error:' + err))
+    }
+
+    useEffect(() => {
+        dispatch(setByValue(searchParams.get('query')))
+        oldSearchValue()
     }, [])
 
     const [popupMovies, setPopupMovies] = useState([])
@@ -56,6 +76,7 @@ function SearchPageField({setSearchedMovies }) {
         <div className="search-page-field">
             <form onSubmit={setMovies}>
                 <EuiFieldSearch
+                    ref={refInput}
                     name="query"
                     placeholder="Search for a movie, tv show, person..."
                     value={value}

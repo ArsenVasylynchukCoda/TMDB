@@ -4,11 +4,14 @@ import {useNavigate } from 'react-router-dom'
 import debounce from 'lodash/debounce'
 import SearchedMovies from '../SearchedMovies/SearchedMovies'
 import {EuiFieldSearch} from "@elastic/eui";
+import {useDispatch} from "react-redux";
+import {reset, setByValue} from "../../features/search/searchSlice";
 
 function SearchBlock() {
     const navigate = useNavigate()
     const [value, setValue] = useState('')
     const [showList, setShowList] = useState(false)
+    const dispatch = useDispatch()
     const onInputChange = (inputValue) => {
         setShowList(true)
         const url = `https://api.themoviedb.org/3/search/movie?query=${inputValue}&include_adult=false&language=en-US&page=1`
@@ -31,6 +34,7 @@ function SearchBlock() {
     function handleChange(event) {
         setValue(event.target.value)
         debounceFn(event.target.value)
+        dispatch(setByValue(event.target.value))
     }
 
     const [searchedMovies, setSearchedMovies] = useState([])
@@ -45,6 +49,7 @@ function SearchBlock() {
             <h2 className="search__sub-title">Millions of movies, TV shows and people to discover. Explore now.</h2>
             <form className="search__block" onSubmit={onSubmit}>
                 <EuiFieldSearch
+                    ref={refInput}
                     value={value}
                     className="search__block-input"
                     placeholder="Search for a movie, tv show, person......"

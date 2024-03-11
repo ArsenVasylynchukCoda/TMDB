@@ -1,0 +1,16 @@
+.footer__right-list-title {
+    text-transform: uppercase;
+    font-family: 'Source Sans 3', sans-serif;
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 28px;
+}
+
+.footer__right-list-item a {
+    font-family: 'Source Sans 3', sans-serif;
+    color: white;
+    font-size: 17px;
+    line-height: 23px;
+    font-weight: 400;
+}

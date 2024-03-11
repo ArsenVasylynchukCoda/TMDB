@@ -1,0 +1,54 @@
+.movies-page__filter-range-list {
+    display: flex;
+    justify-content: space-between;
+}
+
+.movies-page__filter-range-list-item {
+    position: relative;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 16px;
+    color: rgb(183, 183, 183);
+}
+
+.movies-page__filter-item-range {
+    padding-top: 12px;
+    position: relative;
+}
+
+.movies-page__filter-item-range .range-slider {
+    position: absolute;
+    top: 30%;
+    left: -1px;
+}
+
+.movies-page__filter-item-range .range-slider .range-slider__thumb {
+    width: 14px;
+    height: 14px;
+    z-index: 7;
+    transform: translateX(-5px) translateY(-50%);
+}
+
+
+.movies-page__filter-item-range .range-slider .range-slider__range {
+    height: 4px;
+    z-index: 6;
+}
+
+.movies-page__filter-range-list-item::before {
+    content: '';
+    width: 1px;
+    height: 4px;
+    background-color: rgb(183, 183, 183);
+    position: absolute;
+    left: 50%;
+    bottom: 100%;
+    z-index: 5;
+}
+
+.movies-page__filter-range-list-item.long::before {
+    height: 6px;
+}
+
+.movies-page__filter-item-range .range-slider.solo .range-slider__thumb[data-lower] {
+    width: 0;
+}

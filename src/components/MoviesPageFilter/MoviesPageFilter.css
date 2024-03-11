@@ -1,0 +1,112 @@
+.movies-page-block__filter {
+    max-width: 260px;
+    width: 100%;
+    margin-right: 30px;
+}
+
+.movies-page__filter-title-block {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.movies-page__filter-title a {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 18px;
+    padding: 14px 16px;
+    width: 100%;
+    border: 1px solid #e3e3e3;
+    border-radius: 8px;
+    font-weight: 600;
+    color: black;
+    display: block;
+}
+
+.movies-page__filter-item {
+    padding: 14px 16px 16px;
+}
+
+.movies-page__filter-item-title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.movies-page__filter-item-show-me {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.movies-page__filter-item-show-search label {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 16px;
+    line-height: 17px;
+    margin-left: 4px;
+}
+
+.movies-page__filter-item-show-me input:checked {
+    border: 1px solid rgba(1,180,228,1);
+    color: #fff;
+    background-color: rgba(1,180,228,1);
+}
+
+.movies-page__filter-item-show-me div {
+    display: flex;
+    align-items: center;
+}
+
+.movies-page__filter-item-show-me input {
+    border: 1px solid #adb5bd;
+    background-color: #fff;
+    color: transparent;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    outline: 0;
+    position: relative;
+    appearance: none;
+}
+
+.movies-page__filter-item-show-me input[type='radio']:checked:before {
+    content: '';
+    display: block;
+    width: 60%;
+    height: 60%;
+    background-color: #fff;
+    position: absolute;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.movies-page__filter-search-item {
+    margin-top: 8px;
+}
+
+.movies-page__filter-item-generes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.movies-page__filter-btn {
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+    text-align: center;
+    padding: 10px 0;
+    border-radius: 20px;
+    background-color: rgb(1, 180, 228);
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 19px;
+    color: white;
+    font-weight: 600;
+}
+
+.movies-page__filter-btn:hover {
+    background-color: rgba(3,37,65,1);
+}

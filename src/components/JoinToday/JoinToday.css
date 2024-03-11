@@ -1,0 +1,61 @@
+.join-today {
+    background-image: url(https://media.themoviedb.org/t/p/w1920_and_h800_multi_faces_filter\(duotone,190235,ad47dd\)/lMnoYqPIAVL0YaLP5YjRy7iwaYv.jpg);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 30px 40px;
+}
+
+.join-today__title {
+    font-family: 'Source Sans 3', sans-serif;
+    color: #ffffff;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.join-today__text-blocks {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 20px;
+}
+
+.join-today__block-text {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 19px;
+    color: white;
+}
+
+.join-today__block-text span {
+    font-style: italic;
+    opacity: 0.7;
+}
+
+.join-today__block-list {
+    list-style: revert;
+}
+
+.join-today__block-list-item {
+    color: white;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 16px;
+}
+
+.join-today__text-block-right {
+    max-width: 466px;
+    width: 100%;
+}
+
+.join-today__block-button {
+    padding: 8px 16px;
+    background-color: rgb(128, 91, 231);
+    border-radius: 5px;
+    margin-top: 30px;
+}
+
+.join-today__block-button a {
+    font-size: 17px;
+    color: #ffffff;
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 700;
+}

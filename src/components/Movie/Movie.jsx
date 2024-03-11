@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 import './Movie.css'
 
-function Movie ({id}, {className}) {
+function Movie ({id, className}) {
     const [movie, setMovie] = useState({})
 
     const releaseDate = new Date(movie.release_date).toDateString()
@@ -58,7 +58,7 @@ function Movie ({id}, {className}) {
 </div>
 </div>
     <div className='movie__text-block movie__text-block'>
-        <h4 className={`${className}__movie-title movie__title`}><span className={`${className}__movie-title-link movie__title-link`}>{movie.original_title}</span></h4>
+        <h4 className={`${className}__movie-title movie__title`}><span className={`${className}__movie-title-link movie__title-link`}>{movie.title}</span></h4>
         <time className={`${className}__movie-date movie__date`}>{releaseDate}</time>
     </div>
         </>

@@ -1,0 +1,37 @@
+.footer {
+    padding: 80px 0;
+    background-image: radial-gradient(at 30%top,#031d33 0%,rgba(3,37,65,1) 70%);
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.footer__left-btn {
+    padding: 8px 16px;
+    background-color: #fff;
+    border: 2px solid #ffffff;
+    border-radius: 5px;
+}
+
+.footer__left-btn a {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 19px;
+    font-weight: 700;
+    color: rgb(1, 180, 228);
+    text-transform: uppercase;
+}
+
+.footer__left-logo img {
+    width: 130px;
+}
+
+.footer__left-logo {
+    text-align: right;
+    margin-bottom: 50px;
+}
+
+.footer__right {
+    display: flex;
+    gap: 40px;
+}

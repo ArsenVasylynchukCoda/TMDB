@@ -1,0 +1,15 @@
+.movies-page-content {
+    padding: 30px 40px;
+}
+
+.movies-page-block {
+    display: flex;
+    margin-top: 20px;
+    align-items: flex-start;
+}
+
+.movies-page__title {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 26px;
+    font-weight: 600;
+}

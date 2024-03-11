@@ -1,0 +1,9 @@
+.movies-page__searched-movies {
+    display: grid;
+    grid-template-columns: repeat(5, 175px);
+    gap: 26px;
+}
+
+.movies-page__searched-movie {
+    max-width: 175px;
+}
