@@ -9,7 +9,9 @@ function MoviesPageSearchedFilms () {
         <section className='movies-page__searched-movies'>
             {
                 searchedMovies.results && searchedMovies.results.map(elem => {
-                    return <div className={'movies-page__searched-movie'}><Movie id={elem.id} className='movies-page__searched-movie' /></div>
+                    return <div className={'movies-page__searched-movie'}>
+                        <Movie id={elem.id} className='movies-page__searched-movie' />
+                    </div>
                 })
             }
         </section>

@@ -6,6 +6,7 @@ import SearchedMovies from '../SearchedMovies/SearchedMovies'
 import {EuiFieldSearch} from "@elastic/eui";
 import {useDispatch} from "react-redux";
 import {reset, setByValue} from "../../features/search/searchSlice";
+import { load } from '../../api/api'
 
 function SearchBlock() {
     const navigate = useNavigate()
@@ -15,18 +16,20 @@ function SearchBlock() {
     const onInputChange = (inputValue) => {
         setShowList(true)
         const url = `https://api.themoviedb.org/3/search/movie?query=${inputValue}&include_adult=false&language=en-US&page=1`
-        const options = {
-            method: 'GET',
-            headers: {
-                accept: 'application/json',
-                Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkNmNkY2UyYzU3YzQ3Mjk2OTNkNDM3YzFhOTI4ZDBkZSIsInN1YiI6IjY1NWUxMDc2ZDM5OWU2MDEyZTAyMDNiNyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.hq98-Bxaonwz4cniOcrJB9s78VM-TqgWaWrKIUkvy90'
-            }
-        }
 
-        fetch(url, options)
-            .then(res => res.json())
-            .then(json => setSearchedMovies(json.results))
-            .catch(err => console.error('error:' + err))
+        load(url).then(json => setSearchedMovies(json.results)).catch(err => console.error('error:' + err))
+        // const options = {
+        //     method: 'GET',
+        //     headers: {
+        //         accept: 'application/json',
+        //         Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkNmNkY2UyYzU3YzQ3Mjk2OTNkNDM3YzFhOTI4ZDBkZSIsInN1YiI6IjY1NWUxMDc2ZDM5OWU2MDEyZTAyMDNiNyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.hq98-Bxaonwz4cniOcrJB9s78VM-TqgWaWrKIUkvy90'
+        //     }
+        // }
+        //
+        // fetch(url, options)
+        //     .then(res => res.json())
+        //     .then(json => setSearchedMovies(json.results))
+        //     .catch(err => console.error('error:' + err))
     }
 
     const debounceFn = useCallback(debounce(onInputChange, 1000), [])
